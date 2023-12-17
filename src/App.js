@@ -6,12 +6,15 @@ import { ProfilePage } from "./ProfilePage";
 import { NotFoundPage } from "./NotFoundPage";
 import { Menu } from "./Menu";
 import { BlogPost } from "./BlogPost";
+import { LoginPage } from "./LoginPage";
+import { useAuth, AuthProvider } from './auth'
+import { LogoutPage } from "./LogoutPage";
 
 function App() {
   return (
     <>
       <HashRouter>
-        <div>
+        <AuthProvider>
           <Menu />
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -19,9 +22,11 @@ function App() {
               <Route path="/blog/:slug" element={<BlogPost />} />
             </Route>
             <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/logout" element={<LogoutPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
-        </div>
+        </AuthProvider>
       </HashRouter>
     </>
   );
