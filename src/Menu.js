@@ -38,7 +38,6 @@ function Menu() {
       <nav>
         <ul>
           {routes.map((route) => {
-            console.log(route.private && !auth.user)
             if((route.private && !auth.user) || (route.showLoged && !!auth.user))
               return null;
             
@@ -54,6 +53,7 @@ function Menu() {
               </NavLink>
             );
           })}
+          <p>Is Admin: <span>{auth.isAdmin.toString()}</span></p>
         </ul>
       </nav>
     </>
