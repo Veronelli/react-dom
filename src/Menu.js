@@ -27,7 +27,7 @@ const routes = [
   {
     to: "/logout",
     text: "Logout",
-    private: false,
+    private: true,
   },
 ];
 
@@ -38,6 +38,7 @@ function Menu() {
       <nav>
         <ul>
           {routes.map((route) => {
+            console.log(route.private && !auth.user)
             if((route.private && !auth.user) || (route.showLoged && !!auth.user))
               return null;
             

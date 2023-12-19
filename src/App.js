@@ -7,7 +7,7 @@ import { NotFoundPage } from "./NotFoundPage";
 import { Menu } from "./Menu";
 import { BlogPost } from "./BlogPost";
 import { LoginPage } from "./LoginPage";
-import { useAuth, AuthProvider } from './auth'
+import { useAuth, AuthProvider, AuthRoute, NoShowOnAuth } from "./auth";
 import { LogoutPage } from "./LogoutPage";
 
 function App() {
@@ -21,9 +21,30 @@ function App() {
             <Route path="/blog" element={<BlogPage />}>
               <Route path="/blog/:slug" element={<BlogPost />} />
             </Route>
-            <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/logout" element={<LogoutPage />} />
+            <Route
+              path="/profile"
+              element={
+                <AuthRoute>
+                  <ProfilePage />
+                </AuthRoute>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <NoShowOnAuth>
+                  <LoginPage />
+                </NoShowOnAuth>
+              }
+            />
+            <Route
+              path="/logout"
+              element={
+                <AuthRoute>
+                  <LogoutPage />
+                </AuthRoute>
+              }
+            />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </AuthProvider>
