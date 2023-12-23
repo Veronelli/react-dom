@@ -10,10 +10,11 @@ function LoginPage() {
     console.log("Login");
   };
   return (
-    <div>
-      <h1>Login Page</h1>
-      <form onSubmit={onSubmit}>
-        <label>Username: </label>
+    <div className="mx-8">
+      <h1 className="font-bold text-2xl mt-4 mx-2">Login Page</h1>
+      <hr className="my-2"/>
+      <form onSubmit={onSubmit} className="flex flex-col w-72">
+        <label className="font-semibold text-lg">Username: </label>
         <input
           type="text"
           value={username}
@@ -28,9 +29,10 @@ function LoginPage() {
           pattern="[a-zA-Z0-9]+"
           title="Only letters and numbers"
           placeholder="username"
+          className="border border-gray-300 rounded-md p-2 text-lg"
         />
 
-        <button type="submit">Login</button>
+        <button type="submit" className="font-bold text-lg bg-red-100 p-2 mt-4 rounded-md">Login</button>
       </form>
     </div>
   );

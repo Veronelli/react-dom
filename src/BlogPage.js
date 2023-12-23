@@ -5,7 +5,6 @@ import { useAuth } from "./auth";
 
 function BlogPage() {
   const { auth } = useAuth();
-  console.log(auth);
   const canCreate = auth.isAdmin || auth.roles?.includes("writer");
   return (
     <>
