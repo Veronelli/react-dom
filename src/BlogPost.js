@@ -27,8 +27,8 @@ function BlogPost() {
         TITLE: <span className="font-bold">{postData.title}</span>
       </h1>
       <h3 className="font-extrabold text-xl">DESCRIPTION: <span className="font-bold">{postData.content}</span></h3>
-      {canDelete && <button>Delete</button>}
-      {canEdit && <button>Edit</button>}
+      {canDelete && <button className="bg-red-200 text-red-900 text-lg py-1 font-semibold rounded-md mt-4 mb-2">Delete</button>}
+      {canEdit && <button className="bg-blue-200 text-blue-900 text-lg py-1 font-semibold rounded-md">Edit</button>}
     </>
   );
 }

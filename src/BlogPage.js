@@ -13,7 +13,7 @@ function BlogPage() {
           Blog Page
           {canCreate && (
             <span>
-              <button>Crete Post</button>
+              <button className="font-bold text-lg ml-4 bg-green-100 text-green-700 px-2 py-1 rounded-md">Create Post</button>
             </span>
           )}
         </h1>

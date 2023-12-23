@@ -36,7 +36,7 @@ function Menu() {
   return (
     <>
       <nav className="w-full bg-red-500 p-2 flex justify-between">
-        <ul className="flex justify-between w-56 items-center ml-4">
+        <ul className="flex justify-between items-center ml-4">
           {routes.map((route) => {
             if (
               (route.private && !auth.user) ||
@@ -52,7 +52,7 @@ function Menu() {
                   color: isActive ? "red" : "black",
                   fontWeight: isActive ? "bold" : "semibold",
                 })}
-                className="p-2 bg-red-50 rounded-md font-semibold"
+                className="p-2 bg-red-50 rounded-md font-semibold mx-2"
               >
                 {route.text}
               </NavLink>
