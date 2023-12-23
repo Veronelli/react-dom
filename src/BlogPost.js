@@ -11,15 +11,22 @@ function BlogPost() {
   const navigate = useNavigate();
   const roles = auth.roles;
   const canDelete =
-    auth.user === postData.author ||
-    auth.isAdmin ||
-    roles?.includes("deleter");
-  const canEdit = auth.user === postData.author || auth.isAdmin || roles?.includes("editor");
+    auth.user === postData.author || auth.isAdmin || roles?.includes("deleter");
+  const canEdit =
+    auth.user === postData.author || auth.isAdmin || roles?.includes("editor");
   return (
     <>
-      <button onClick={() => navigate(-1)}>Back</button>
-      <h1>{postData.title}</h1>
-      <h3>{postData.content}</h3>
+      <button
+        onClick={() => navigate(-1)}
+        className="w-full bg-blue-100 text-xl p-2 rounded-md"
+      >
+        Back
+      </button>
+      <hr className="my-4"/>
+      <h1 className="text-2xl font-extrabold">
+        TITLE: <span className="font-bold">{postData.title}</span>
+      </h1>
+      <h3 className="font-extrabold text-xl">DESCRIPTION: <span className="font-bold">{postData.content}</span></h3>
       {canDelete && <button>Delete</button>}
       {canEdit && <button>Edit</button>}
     </>
