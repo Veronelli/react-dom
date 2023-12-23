@@ -22,7 +22,7 @@ const routes = [
     to: "/login",
     text: "Login",
     private: false,
-    showLoged: true
+    showLoged: true,
   },
   {
     to: "/logout",
@@ -32,29 +32,36 @@ const routes = [
 ];
 
 function Menu() {
-  const {auth} = useAuth();
+  const { auth } = useAuth();
   return (
     <>
-      <nav>
-        <ul>
+      <nav className="w-full bg-red-500 p-2 flex justify-between">
+        <ul className="flex justify-between w-56 items-center ml-4">
           {routes.map((route) => {
-            if((route.private && !auth.user) || (route.showLoged && !!auth.user))
+            if (
+              (route.private && !auth.user) ||
+              (route.showLoged && !!auth.user)
+            )
               return null;
-            
+
             return (
               <NavLink
                 to={route.to}
                 key={`route-${route.to}`}
                 style={({ isActive }) => ({
                   color: isActive ? "red" : "black",
+                  fontWeight: isActive ? "bold" : "semibold",
                 })}
+                className="p-2 bg-red-50 rounded-md font-semibold"
               >
                 {route.text}
               </NavLink>
             );
           })}
-          <p>Is Admin: <span>{auth.isAdmin.toString()}</span></p>
         </ul>
+        <p className="p-2 bg-red-50 rounded-md">
+          Is Admin: <span>{auth.isAdmin.toString()}</span>
+        </p>
       </nav>
     </>
   );

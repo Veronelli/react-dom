@@ -15,8 +15,8 @@ function AuthProvider({ children }) {
   const navigate = useNavigate();
 
   const login = ({ username }) => {
-    const adminUser = adminList.find((user) => user.username === username );
-    setIsAdmin(adminUser.roles.includes("admin"));
+    const adminUser = adminList.find((user) => user.username === username )|| {roles: ""};
+    setIsAdmin(adminUser.roles?.includes("admin"));
     const userRoles = adminUser ? adminUser.roles : [];
     setRoles(userRoles)
     setUser(username);
